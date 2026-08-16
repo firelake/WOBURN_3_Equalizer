@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows10.0.22621.0</TargetFramework>
+    <TargetFramework>net10.0-windows10.0.22621.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
@@ -15,6 +15,17 @@
 
   <ItemGroup>
     <Resource Include="marshall.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="MarshallWake.Service\**\*.cs" />
+    <Compile Remove="MarshallWake.Service.Tests\**\*.cs" />
+    <Content Remove="MarshallWake.Service\**\*" />
+    <Content Remove="MarshallWake.Service.Tests\**\*" />
+    <EmbeddedResource Remove="MarshallWake.Service\**\*" />
+    <EmbeddedResource Remove="MarshallWake.Service.Tests\**\*" />
+    <None Remove="MarshallWake.Service\**\*" />
+    <None Remove="MarshallWake.Service.Tests\**\*" />
   </ItemGroup>
 
 </Project>
