@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <TargetFramework Condition="$([MSBuild]::IsOSPlatform('windows')) and '$(RuntimeIdentifier)' != 'linux-x64' and '$(RuntimeIdentifier)' != 'linux-arm64'">net10.0-windows10.0.19041.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="InTheHand.BluetoothLE" Version="4.0.44" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Systemd" Version="10.0.11" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="10.0.11" />
+    <PackageReference Include="Tmds.DBus" Version="0.94.2" Condition="'$(TargetFramework)' == 'net10.0'" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Marshall Wake</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <p class="eyebrow">BLUETOOTH KEEP-AWAKE</p>
+        <h1>Marshall Wake</h1>
+        <p class="subtitle">自动发现并定时唤醒周边 Marshall 音响</p>
+      </div>
+      <span id="service-state" class="pill">读取中</span>
+    </header>
+
+    <section class="summary-grid">
+      <article class="summary">
+        <span>唤醒周期</span>
+        <strong id="interval">--</strong>
+      </article>
+      <article class="summary">
+        <span>最近扫描</span>
+        <strong id="last-scan">--</strong>
+      </article>
+      <article class="summary">
+        <span>最近结果</span>
+        <strong id="last-result">--</strong>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">
+        <div>
+          <p class="eyebrow">DEVICES</p>
+          <h2>发现的音响</h2>
+        </div>
+        <button id="refresh">重新扫描</button>
+      </div>
+      <div id="devices" class="devices">
+        <p class="empty">正在扫描设备...</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-title">
+        <div>
+          <p class="eyebrow">HISTORY</p>
+          <h2>执行历史</h2>
+        </div>
+        <label>
+          结果
+          <select id="result-filter">
+            <option value="">全部</option>
+            <option value="true">成功</option>
+            <option value="false">失败</option>
+          </select>
+        </label>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>时间</th>
+              <th>设备</th>
+              <th>触发</th>
+              <th>结果</th>
+              <th>详情</th>
+            </tr>
+          </thead>
+          <tbody id="history"></tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <button id="previous">上一页</button>
+        <span id="page-info">第 1 页</span>
+        <button id="next">下一页</button>
+      </div>
+    </section>
+  </main>
+  <div id="toast" role="status"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
